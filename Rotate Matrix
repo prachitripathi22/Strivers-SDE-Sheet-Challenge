@@ -1,0 +1,33 @@
+void rotateMatrix(vector<vector<int>> &mat, int n, int m) {
+  // Write your code here
+  int top=0;
+  int bot=n-1;
+  int left=0;
+  int rig =m-1;
+  if(n==1 || m==1) return;
+  while(top<bot && left < rig)
+  {
+      int temp=mat[top][left];
+
+      for(int i=top;i<bot;i++)
+      {
+        mat[i][left]=mat[i+1][left];
+      }
+
+      for(int i=left;i<rig;i++)
+      {
+        mat[bot][i]=mat[bot][i+1];
+      }
+      for(int i=bot;i>top;i--)
+      {
+          mat[i][rig]=mat[i-1][rig];
+      }
+      for(int i=rig;i>left;i--)
+      {
+          mat[top][i]=mat[top][i-1];
+      }
+
+      mat[top][left+1]=temp;
+      left++,rig--,top++,bot--;
+  }
+}
