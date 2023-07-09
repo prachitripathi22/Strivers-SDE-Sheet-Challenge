@@ -1,0 +1,22 @@
+#include <bits/stdc++.h> 
+void help(int index , vector<int>v ,vector<vector<int>> &ans, vector<int> &temp)
+{
+    if(index==v.size())
+    {
+        ans.push_back(temp);
+        return;
+    }
+    temp.push_back(v[index]);
+    help(index+1,v,ans,temp);
+    temp.pop_back();
+    help(index+1,v,ans,temp);
+}
+vector<vector<int>> pwset(vector<int>v)
+{
+    //Write your code here
+    vector<vector<int>> ans;
+    vector<int> temp;
+    int index=0;
+    help(index,v,ans,temp);
+    return ans;
+}
