@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+
+int pow(int x,int y,int m)
+{
+	int ans=1;
+	while(y)
+	{
+	if(y%2)
+	{
+		ans=(1ll* ans%m * x%m);
+		y=y-1;
+	}
+	else
+	{
+		x=(1ll* x%m * x%m);
+		y=y/2;
+	}
+	}
+	return ans;
+}
+int modularExponentiation(int x, int n, int m) {
+	// Write your code here.
+	pow(x,n,m)%m;;
+}
